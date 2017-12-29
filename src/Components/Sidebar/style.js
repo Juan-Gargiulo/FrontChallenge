@@ -1,10 +1,15 @@
 import styled from 'styled-components';
+import {secondaryColor} from '../../common/colors.js'
+
+//transform: translateX(${props => props.visible ? '0px' : '-300px'});
+//transition: transform .2s ease-in;
+//display: ${props => props.visible ? "block" : "none"};
 
 export const Container = styled.div`
-    display: ${props => props.visible ? 'flex' : 'none'};
-    flex-direction: column;
-    align-items: center;
+    transform: translateX(${props => props.navVisible ? '0px' : '-300px'});
+    transition: transform .2s ease-in;
+    display: block;
     width: 300px;
-    height: 100%;
-    background-color: black;
+    height: calc(100vh - 60px);
+    background-color: ${secondaryColor};
 `
