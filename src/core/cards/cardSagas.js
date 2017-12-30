@@ -1,4 +1,4 @@
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
+import { call, put, takeEvery } from 'redux-saga/effects'
 import { FETCHING_CARDS, SET_CARDS, GET_CARDS } from '../constants'
 import { fetchCards } from './api'
 

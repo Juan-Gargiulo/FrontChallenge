@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Container } from './style.js'
 import { connect } from 'react-redux'
 import { getCards } from '../../core/cards/cardsActions'
+import CircularProgress from 'material-ui/CircularProgress';
 
 import Card from '../../Components/Card'
 
@@ -24,7 +25,7 @@ class Gallery extends Component {
         return (
             <Container {...this.props}> 
                 { fetching ? 
-                    <p>loading..</p> :
+                   <CircularProgress size={60} thickness={7} /> :
                     renderCards(cards) 
                 }
             </Container>
