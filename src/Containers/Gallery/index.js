@@ -4,51 +4,41 @@ import { connect } from 'react-redux'
 import { getCards } from '../../core/cards/cardsActions'
 import CircularProgress from 'material-ui/CircularProgress';
 
+import { compose, withProps, lifecycle } from 'recompose'
+import withLoading from '../Hocs/LoadingHoc'
+
 import Card from '../../Components/Card'
 
-class Gallery extends Component {
-    constructor(props) {
-        super(props);
-    }
-
-    componentWillMount(){
-        const { getCards } = this.props;
-        getCards()
-    }
-
-    render() {
-
-        const { cards, fetching } = this.props
-        console.log(fetching)
-        const renderCards = cards => cards.map( card => <Card card={card} /> )
-        
-        return (
-            <Container {...this.props}> 
-                { fetching ? 
-                   <CircularProgress size={60} thickness={7} /> :
-                    renderCards(cards) 
-                }
-            </Container>
-        )
-    }
+const Gallery = ({ cards, fetching, getCards, ...props }) => {
+   return (
+      <Container {...this.props}> 
+         { renderCards(cards) }
+      </Container>  
+   )
 }
 
-const mapStateToProps = state => {
-    return {
-      fetching: state.cards.fetching,
-      cards: state.cards.cards
-    }
-}
+const renderCards = cards => cards.map(card => <Card card={card} key={card.cardId} />)
 
-const mapDispatchToProps = dispatch => {
-    return { 
-        getCards: () => dispatch(getCards())
-    }
-}
+const enchanced = compose(
+      connect(
+            state => ({
+                  loading: state.cards.fetching,
+                  cards: state.cards.cards
+            }), 
+            dispatch => ({ 
+                  getCards: () => dispatch(getCards())
+            })
+      ),
+      withProps({
+			spinnerColor: 'black',
+			spinnerthickness: 15
+		}),
+      lifecycle({
+            componentWillMount() {
+                  this.props.getCards();
+            },
+      }),
+      withLoading,
+)
 
-const ConectedGallery = connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Gallery)
-
-export default ConectedGallery
+export default enchanced(Gallery);

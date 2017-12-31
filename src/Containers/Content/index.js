@@ -6,7 +6,7 @@ import {
     Switch,
   } from 'react-router-dom'
 
-import Gallery from '../Gallery';
+import Gallery from '../Gallery'
 import Detail from '../Detail';
 
 import { Container, Body } from './style.js'

@@ -5,8 +5,6 @@ import registerServiceWorker from './registerServiceWorker';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import { createDevTools } from 'redux-devtools'
-
 import createSagaMiddleware from 'redux-saga'
 import { createStore, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
