@@ -1,13 +1,12 @@
 import styled from 'styled-components';
+import {secondaryColor} from '../../common/colors'
 
 export const Container = styled.div`
     display: flex;
     align-items: center;
     padding: 0 20px 0 20px;
     height: 60px;
-    width: 100%;
-    background-color: black;
-
+    background-color: ${secondaryColor};
 `
 
 export const Logo = styled.img.attrs({
@@ -16,3 +15,6 @@ export const Logo = styled.img.attrs({
     height: 39px;
     width: 35px;
 `
+
+
+

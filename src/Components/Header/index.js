@@ -1,10 +1,10 @@
 import React from 'react';
 import {Container, Logo} from './style';
 
-const Header = props => {
+const Header = ({toggleSidebar, ...props}) => {
     return (
         <Container primary>
-            <Logo />
+            <Logo onClick={toggleSidebar}/>
         </Container>
     )
 }

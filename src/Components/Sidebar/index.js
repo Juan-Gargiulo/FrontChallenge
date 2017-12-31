@@ -3,9 +3,8 @@ import { Container } from './style'
 
 const Sidebar = props => {
     return (
-        <Container {...props} >
-            
-        </Container>
+            <Container {...props} >
+            </Container>
     )
 }
 
