@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import { Container } from './style.js'
 import { connect } from 'react-redux'
 import { getCards } from '../../core/cards/cardsActions'
 import CircularProgress from 'material-ui/CircularProgress';
 
-import { compose, withProps, lifecycle } from 'recompose'
+import { compose, withProps, lifecycle, setDisplayName } from 'recompose'
 import withLoading from '../Hocs/LoadingHoc'
 
 import Card from '../../Components/Card'
+import { Container } from './style.js'
 
-const Gallery = ({ cards, fetching, getCards, ...props }) => {
+const GalleryContainer = ({ cards, fetching, getCards, ...props }) => {
    return (
       <Container {...this.props}> 
          { renderCards(cards) }
@@ -31,14 +31,16 @@ const enchanced = compose(
       ),
       withProps({
 			spinnerColor: 'black',
-			spinnerthickness: 15
+                  spinnerthickness: 15,
+                  spinnerSize: 100
 		}),
       lifecycle({
             componentWillMount() {
                   this.props.getCards();
             },
       }),
-      withLoading,
+      withLoading, //spinner HOC
+      setDisplayName('Gallery')
 )
 
-export default enchanced(Gallery);
+export default enchanced(GalleryContainer);

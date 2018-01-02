@@ -1,11 +1,37 @@
 import React from 'react';
-import { Container } from './style';
+import styled from 'styled-components';
+
+import { secondaryColor } from '../../common/colors'
+
+const Container = styled.div`
+    display: block;
+    min-height: 408px;
+    width: 325px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    background-color: white;
+`
+const Description = styled.div`
+    padding: 15px 30px 15px 30px;
+    color: #4d5056;
+`
+
+
+const CardImg = styled.img.attrs({
+    src: props => props.card.cardImageUrl
+})`
+    width: 100%;
+`
 
 const Card = ({...props, card}) => {
     console.log(card)
     return (
         <Container>
-            <p>{card.cardTitle}</p>
+            <CardImg {...props} />
+            <Description>
+                <p>{card.cardDescription}</p>
+            </Description>
         </Container>
     )
 }
