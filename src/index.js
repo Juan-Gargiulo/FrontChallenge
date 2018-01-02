@@ -4,6 +4,8 @@ import App from '../src/Containers/App'
 import registerServiceWorker from './registerServiceWorker';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { injectGlobal } from 'styled-components';
+import Roboto from './Roboto.ttf';
 
 import createSagaMiddleware from 'redux-saga'
 import { createStore, applyMiddleware, compose } from 'redux'
@@ -20,11 +22,20 @@ const store = createStore(
         applyMiddleware(sagaMiddleware),
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     )
-    
-    
 )
 
 sagaMiddleware.run(rootSagas)
+
+injectGlobal`
+    @font-face {
+    font-family: 'Roboto';
+    src: url(${Roboto});
+    }
+
+    body{
+        font-family: Roboto;
+    }
+`
 
 ReactDOM.render(
     <Provider store={store}>
@@ -35,3 +46,5 @@ ReactDOM.render(
     , document.getElementById('root')
 );
 registerServiceWorker();
+
+
