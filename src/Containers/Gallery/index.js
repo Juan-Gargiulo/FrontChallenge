@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Container } from './style.js'
 import { connect } from 'react-redux'
 import { getCards } from '../../core/cards/cardsActions'
 import CircularProgress from 'material-ui/CircularProgress';
@@ -8,6 +7,7 @@ import { compose, withProps, lifecycle } from 'recompose'
 import withLoading from '../Hocs/LoadingHoc'
 
 import Card from '../../Components/Card'
+import { Container } from './style.js'
 
 const Gallery = ({ cards, fetching, getCards, ...props }) => {
    return (
@@ -18,6 +18,7 @@ const Gallery = ({ cards, fetching, getCards, ...props }) => {
 }
 
 const renderCards = cards => cards.map(card => <Card card={card} key={card.cardId} />)
+
 
 const enchanced = compose(
       connect(
@@ -31,14 +32,15 @@ const enchanced = compose(
       ),
       withProps({
 			spinnerColor: 'black',
-			spinnerthickness: 15
+                  spinnerthickness: 15,
+                  spinnerSize: 100
 		}),
       lifecycle({
             componentWillMount() {
                   this.props.getCards();
             },
       }),
-      withLoading,
+      withLoading, //spinner HOC
 )
 
 export default enchanced(Gallery);
