@@ -7,13 +7,18 @@ import { compose, withProps, lifecycle, setDisplayName } from 'recompose'
 import withLoading from '../Hocs/LoadingHoc'
 
 import Card from '../../Components/Card'
-import { Container } from './style.js'
+import PageTitle from '../../Components/layout/PageTitle'
+import { Container, GalleryCont } from './style.js'
+
 
 const GalleryContainer = ({ cards, fetching, getCards, ...props }) => {
    return (
-      <Container {...this.props}> 
-         { renderCards(cards) }
-      </Container>  
+      <Container {...this.props}>
+            <PageTitle title={'LANGUAGES & TECHNOLOGIES'} />
+            <GalleryCont >
+            { renderCards(cards) }
+            </GalleryCont>
+      </Container>
    )
 }
 
@@ -25,8 +30,8 @@ const enchanced = compose(
             state => ({
                   loading: state.cards.fetching,
                   cards: state.cards.cards
-            }), 
-            dispatch => ({ 
+            }),
+            dispatch => ({
                   getCards: () => dispatch(getCards())
             })
       ),

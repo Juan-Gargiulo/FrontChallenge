@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { secondaryColor } from '../../common/colors'
+import { secondaryColor, primaryFontColor } from '../../common/colors'
 
 const Container = styled.div`
     display: block;
@@ -14,7 +14,7 @@ const Container = styled.div`
 `
 const Description = styled.div`
     padding: 15px 30px 15px 30px;
-    color: #4d5056;
+    color: ${primaryFontColor};
 `
 
 
