@@ -5,13 +5,16 @@ import CircularProgress from 'material-ui/CircularProgress';
 
 import { compose, withProps, lifecycle, setDisplayName } from 'recompose'
 import withLoading from '../Hocs/LoadingHoc'
+import { cardsFiltered } from '../../core/cards/cardSelectors'
 
 import Card from '../../Components/Card'
 import PageTitle from '../../Components/layout/PageTitle'
+
+import { primaryColor } from '../../common/colors'
 import { Container, GalleryCont } from './style.js'
 
 
-const GalleryContainer = ({ cards, fetching, getCards, ...props }) => {
+const Gallery = ({ cards, fetching, getCards, ...props }) => {
    return (
       <Container {...this.props}>
             <PageTitle title={'LANGUAGES & TECHNOLOGIES'} />
@@ -29,17 +32,17 @@ const enchanced = compose(
       connect(
             state => ({
                   loading: state.cards.fetching,
-                  cards: state.cards.cards
+                  cards: cardsFiltered(state)
             }),
             dispatch => ({
                   getCards: () => dispatch(getCards())
             })
       ),
       withProps({
-			spinnerColor: 'black',
-                  spinnerthickness: 15,
-                  spinnerSize: 100
-		}),
+        spinnerColor: primaryColor,
+        spinnerthickness: 15,
+        spinnerSize: 100
+		  }),
       lifecycle({
             componentWillMount() {
                   this.props.getCards();
@@ -48,4 +51,4 @@ const enchanced = compose(
       withLoading, //spinner HOC
 )
 
-export default enchanced(GalleryContainer);
+export default enchanced(Gallery);

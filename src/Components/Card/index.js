@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import { secondaryColor, primaryFontColor } from '../../common/colors'
 
@@ -35,5 +36,9 @@ const Card = ({...props, card}) => {
         </Container>
     )
 }
+
+Card.propTypes = {
+  card: PropTypes.object,
+};
 
 export default Card

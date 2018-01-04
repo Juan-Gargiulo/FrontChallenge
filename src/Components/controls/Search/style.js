@@ -1,4 +1,4 @@
-import { primaryColor, primaryFontColor } from '../../../common/colors'
+import { primaryColor, primaryFontColor, primaryColorStrong } from '../../../common/colors'
 
 export const style = {
   container: {
@@ -8,6 +8,6 @@ export const style = {
     color: primaryFontColor
   },
   inputStyle: {
-    color: 'white'
+    color: primaryColorStrong
   }
 }

@@ -17,7 +17,7 @@ export default class Search extends Component {
 
     return (e) => {
       e.persist();
-      return debounced(e.currentTarget.value);
+      return debounced(e.currentTarget.value.toLowerCase());
     };
   }
 
@@ -28,7 +28,7 @@ export default class Search extends Component {
     return (
       <div style={style.container}>
         <TextField
-          hintText={style.hintText}
+          hintText={hintText}
           fullWidth={true}
           inputStyle={style.inputStyle}
           hintStyle={style.hintStyle}
