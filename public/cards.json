@@ -34,7 +34,7 @@
         "cardTitle": "HTML",
         "cardDescription": "Hypertext Markup Language (HTML) is the standard markup language for creating web pages and web applications. With Cascading Style Sheets (CSS) and JavaScript it forms a triad of cornerstone technologies for the World Wide Web. Web browsers receive HTML documents from a web server or from local storage and render them into multimedia web pages. HTML describes the structure of a web page semantically and originally included cues for the appearance of the document.",
         "cardTechnology": ["Frontend"],
-        "cardImageUrl": "img/js.png",
+        "cardImageUrl": "img/html.png",
         "cardGraph": {
             "data": [10, 10, 80]
         },
@@ -49,7 +49,7 @@
         "cardTitle": "Node.js",
         "cardDescription": "Node.js is an open-source, cross-platform JavaScript run-time environment for executing JavaScript code server-side. Historically, JavaScript was used primarily for client-side scripting, in which scripts written in JavaScript are embedded in a webpage's HTML, to be run client-side by a JavaScript engine in the user's web browser.",
         "cardTechnology": ["Backend"],
-        "cardImageUrl": "img/html5-css3.png",
+        "cardImageUrl": "img/nodejs.png",
         "cardGraph": {
             "data": [60, 25, 15]
         },
@@ -64,7 +64,7 @@
         "cardTitle": "Python",
         "cardDescription": "Python is a widely used high-level programming language for general-purpose programming, created by Guido van Rossum and first released in 1991. An interpreted language, Python has a design philosophy that emphasizes code readability (notably using whitespace indentation to delimit code blocks rather than curly brackets or keywords), and a syntax that allows programmers to express concepts in fewer lines of code than might be used in languages such as C++ or Java.",
         "cardTechnology": ["Backend"],
-        "cardImageUrl": "img/js.png",
+        "cardImageUrl": "img/python.png",
         "cardGraph": {
             "data": [60, 25, 15]
         },
@@ -79,7 +79,7 @@
         "cardTitle": "Angular",
         "cardDescription": "AngularJS (commonly referred to as Angular.js or AngularJS 1.X) is a JavaScript-based open-source front-end web application framework mainly maintained by Google and by a community of individuals and corporations to address many of the challenges encountered in developing single-page applications.",
         "cardTechnology": ["Frontend"],
-        "cardImageUrl": "img/html5-css3.png",
+        "cardImageUrl": "img/angularjs.jpg",
         "cardGraph": {
             "data": [60, 25, 15]
         },

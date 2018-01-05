@@ -6,6 +6,17 @@ import { style } from './style'
 
 import debounce from 'lodash.debounce';
 
+import { primaryColor, primaryFontColor, primaryColorStrong } from '../../../common/colors'
+
+
+export const styles = {
+  container: {padding: '25px 20px 10px 25px'},
+  inputStyle: {color: primaryColorStrong},
+  hintStyle: {color: primaryFontColor},
+  underlineStyle: {fill: primaryColor},
+  floatingLabelFocusStyle: {fill: primaryColor}
+};
+
 export default class Search extends Component {
 
   constructor(props) {
@@ -26,13 +37,12 @@ export default class Search extends Component {
     const { hintText, filterFn } = this.props
 
     return (
-      <div style={style.container}>
+      <div style={styles.container}>
         <TextField
           hintText={hintText}
           fullWidth={true}
-          inputStyle={style.inputStyle}
-          hintStyle={style.hintStyle}
           onChange={this.debounceEventHandler(filterFn)}
+          {...styles}
         />
       </div>
     )

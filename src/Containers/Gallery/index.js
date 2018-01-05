@@ -5,7 +5,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 
 import { compose, withProps, lifecycle, setDisplayName } from 'recompose'
 import withLoading from '../Hocs/LoadingHoc'
-import { cardsFiltered } from '../../core/cards/cardSelectors'
+import { cardsSelected } from '../../core/cards/cardSelectors'
 
 import Card from '../../Components/Card'
 import PageTitle from '../../Components/layout/PageTitle'
@@ -32,7 +32,8 @@ const enchanced = compose(
       connect(
             state => ({
                   loading: state.cards.fetching,
-                  cards: cardsFiltered(state)
+                  tech: state.cards.tech,
+                  cards: cardsSelected(state)
             }),
             dispatch => ({
                   getCards: () => dispatch(getCards())

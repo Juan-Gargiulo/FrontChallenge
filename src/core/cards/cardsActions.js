@@ -1,4 +1,4 @@
-import { FETCHING_CARDS, FILTER_CARD, SET_CARDS, GET_CARDS } from '../constants'
+import { FETCHING_CARDS, FILTER_CARD, SET_CARDS, GET_CARDS, FILTER_CARD_TECH } from '../constants'
 
 
 export const getCards = () => ({
@@ -11,6 +11,11 @@ export const fetchingCards = () => ({
 
 export const setCardFilter = filter => ({
   type: FILTER_CARD,
+  filter
+})
+
+export const setCardTech = filter => ({
+  type: FILTER_CARD_TECH,
   filter
 })
 
