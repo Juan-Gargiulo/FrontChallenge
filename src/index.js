@@ -6,6 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { injectGlobal } from 'styled-components';
 import Roboto from './Roboto.ttf';
+import RobotoLight from './Roboto-Light.ttf'
 
 import createSagaMiddleware from 'redux-saga'
 import { createStore, applyMiddleware, compose } from 'redux'
@@ -28,8 +29,13 @@ sagaMiddleware.run(rootSagas)
 
 injectGlobal`
     @font-face {
-    font-family: 'Roboto';
-    src: url(${Roboto});
+        font-family: 'Roboto';
+        src: url(${Roboto});
+    }
+
+    @font-face {
+        font-family: 'Roboto-Light';
+        src: url(${RobotoLight});
     }
 
     body{

@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
-
-import TextField from 'material-ui/TextField';
-import { style } from './style'
-
 import debounce from 'lodash.debounce';
 
+import TextField from 'material-ui/TextField';
 import { primaryColor, primaryFontColor, primaryColorStrong } from '../../../common/colors'
-
 
 export const styles = {
   container: {padding: '25px 20px 10px 25px'},
@@ -18,10 +14,6 @@ export const styles = {
 };
 
 export default class Search extends Component {
-
-  constructor(props) {
-    super(props);
-  }
 
   debounceEventHandler(fn) {
     const debounced = debounce(fn, 1000);

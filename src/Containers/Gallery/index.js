@@ -1,9 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { getCards } from '../../core/cards/cardsActions'
-import CircularProgress from 'material-ui/CircularProgress';
 
-import { compose, withProps, lifecycle, setDisplayName } from 'recompose'
+import { compose, withProps, lifecycle } from 'recompose'
 import withLoading from '../Hocs/LoadingHoc'
 import { cardsSelected } from '../../core/cards/cardSelectors'
 

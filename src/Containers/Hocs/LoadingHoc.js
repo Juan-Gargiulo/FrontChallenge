@@ -1,5 +1,5 @@
 import React from 'react';
-import { branch, renderComponent, renderNothing } from 'recompose'
+import { branch } from 'recompose'
 import CircularProgress from 'material-ui/CircularProgress';
 
 import styled from 'styled-components';

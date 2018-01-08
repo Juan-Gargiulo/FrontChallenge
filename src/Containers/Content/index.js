@@ -1,25 +1,48 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 import {
-    BrowserRouter as Router,
-    Route,
-    Switch,
-  } from 'react-router-dom'
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from 'react-router-dom'
+
 
 import Gallery from '../Gallery'
 import Detail from '../Detail';
 
-import { Container, Body } from './style.js'
+import { Container } from './style.js'
+
+export const paths = {
+  GALLERY: '/',
+  CARD_DETAIL: '/detail/:id',
+};
+
+const routes = [
+  {
+    exact: true,
+    path: paths.GALLERY,
+    render: props => <Gallery title="Gallery" {...props} />
+  },
+  {
+    
+    
+    path: paths.CARD_DETAIL,
+    render: props => <Detail title="Detail" {...props} />
+
+  },
+  {
+    component: () => <h3>No match for this route></h3>
+  }
+];
+
 
 
 export const Content = ({...props}) => (
     <Router>
         <Container>
-                <Route exact path="/" component={Gallery}/>
-                <Route exact path="/detail" component={Detail}/>
+          <Switch>
+            { routes.map( (route, key) => <Route key={key} {...route} /> ) }
+          </Switch>
         </Container>
     </Router>
 )
-
-
-

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import { secondaryColor, primaryFontColor } from '../../common/colors'
+import { primaryFontColor } from '../../common/colors'
 
 const Container = styled.div`
     display: block;

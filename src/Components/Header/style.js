@@ -10,7 +10,7 @@ export const Container = styled.div`
 `
 
 export const Logo = styled.img.attrs({
-    src: 'img/avalith.png'
+    src: './img/avalith.png'
 })`
     height: 39px;
     width: 35px;

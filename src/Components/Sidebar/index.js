@@ -1,22 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
-import { compose, withProps } from 'recompose';
+import { compose } from 'recompose';
 
 import { setCardFilter, setCardTech } from '../../core/cards/cardsActions';
 
 import { Container } from './style'
 
+import Profile from '../Profile'
 import Search from '../controls/Search'
 import RadioGroup from '../controls/Filter'
 
-function radioSelected(e, value) {
-  console.log(value)
-}
 
 const Sidebar = ({...props, filterFn, setTech}) => {
   return (
     <Container {...props} >
+    <Profile name={'Juan'} age={33} dni={'31.309.826'} />
       <Search
         hintText="search in cards"
         filterFn={filterFn}

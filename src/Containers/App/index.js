@@ -1,16 +1,9 @@
 import React, { Component } from 'react'
 import Header from '../../Components/Header';
 import Sidebar from '../../Components/Sidebar';
-import Gallery from '../Gallery';
-import Detail from '../Detail';
 import { Content } from '../Content';
 
 import { connect } from 'react-redux'
-
-import {
-    BrowserRouter as Router,
-    Route,
-  } from 'react-router-dom'
 
 import { Container, Body } from './style.js'
 
@@ -32,13 +25,6 @@ class App extends Component {
     }
     
     render() {
-
-        const Loading = () => (
-            <div>
-                fetching
-            </div>
-        )
-
         return (
                 <Container>
                     <Header toggleSidebar={this.toggleSidebar}/>
