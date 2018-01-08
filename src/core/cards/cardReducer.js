@@ -10,13 +10,10 @@ const initialState = {
 const cardsReducer = (state = initialState, action) => {
     switch (action.type) {
 
-      case FETCHING_CARDS:
-        console.log("fetching")
+      case FETCHING_CARDS:        
         return { ...state, fetching: true }
 
-
       case SET_CARDS:
-        console.log(action.cards)
         return { ...state, ...{fetching: false, cards: action.cards} }
 
       case FILTER_CARD:

@@ -24,7 +24,7 @@ const Gallery = ({ cards, fetching, getCards, ...props }) => {
    )
 }
 
-const renderCards = cards => cards.map(card => <Card card={card} key={card.cardId} />)
+const renderCards = cards => cards.map(card => <Card card={card} key={card.cardId} animate/>)
 
 
 const enchanced = compose(
