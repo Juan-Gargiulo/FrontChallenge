@@ -1,11 +1,21 @@
-import { FETCHING_CARDS, FILTER_CARD, SET_CARDS, GET_CARDS, FILTER_CARD_TECH } from '../constants'
+export const GET_CARDS = "GET_CARDS"
+export const GET_CARD_DETAIL = "GET_CARD_DETAIL"
+export const FILTER_CARD_DETAIL = "FILTER_CARD_DETAIL"
+export const FILTER_CARD = "FILTER_CARD"
+export const SET_CARDS = "SET_CARDS"
+export const FETCHING_CARDS = "FETCHING"
+export const FILTER_CARD_TECH = "FILTER_CARD_TECH"
 
+export const getCardDetail = (id) => ({
+  type: GET_CARD_DETAIL,
+  payload: id
+})
 
 export const getCards = () => ({
   type: GET_CARDS,
 })
 
-export const fetchingCards = () => ({
+export const fetching = () => ({
   type: FETCHING_CARDS,
 })
 
@@ -19,7 +29,7 @@ export const setCardTech = filter => ({
   filter
 })
 
-export const setCards = payload => ({
+export const setCards = cards => ({
   type: SET_CARDS,
-  payload
+  cards
 })

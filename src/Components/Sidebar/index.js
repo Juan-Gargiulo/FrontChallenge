@@ -13,6 +13,7 @@ import RadioGroup from '../controls/Filter'
 
 
 const Sidebar = ({...props, filterFn, setTech}) => {
+  
   return (
     <Container {...props} >
     <Profile name={'Juan'} age={33} dni={'31.309.826'} />

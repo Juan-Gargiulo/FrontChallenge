@@ -10,16 +10,18 @@ import Card from '../../Components/Card'
 import PageTitle from '../../Components/layout/PageTitle'
 
 import { primaryColor } from '../../common/colors'
-import { Container, GalleryCont } from './style.js'
+import { Container, GalleryCont, Content } from './style.js'
 
 
-const Gallery = ({ cards, fetching, getCards, ...props }) => {
+const Gallery = ({ ...props, cards, fetching, getCards }) => {
    return (
       <Container {...this.props}>
+            
             <PageTitle title={'LANGUAGES & TECHNOLOGIES'} />
             <GalleryCont >
             { renderCards(cards) }
             </GalleryCont>
+            
       </Container>
    )
 }
@@ -42,7 +44,7 @@ const enchanced = compose(
         spinnerColor: primaryColor,
         spinnerthickness: 15,
         spinnerSize: 100
-		  }),
+      }),
       lifecycle({
             componentWillMount() {
                   this.props.getCards();

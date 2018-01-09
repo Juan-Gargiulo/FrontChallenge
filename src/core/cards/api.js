@@ -1,5 +1,5 @@
-export const fetchCards = () => {
+export const fetchCardsApi = () => {
 				return fetch('cards.json')
-				.then( cards =>  new Promise(resolve => setTimeout(() => resolve(cards.json()), 1000)))	
+				.then( cards =>  cards.json())	
 }
 

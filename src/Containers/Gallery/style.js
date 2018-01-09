@@ -16,3 +16,8 @@ export const GalleryCont = styled.div`
   align-items: start;
   align-content: start;
 `
+
+export const Content = styled.div`
+  diplay: block;
+  width: 80%;
+`

@@ -1,4 +1,10 @@
-import { FETCHING_CARDS, FILTER_CARD, SET_CARDS, FILTER_CARD_TECH } from '../constants'
+import { 
+  FETCHING_CARDS, 
+  FILTER_CARD, 
+  SET_CARDS, 
+  FILTER_CARD_TECH,
+  FILTER_CARD_DETAIL
+} from './cardsActions'
 
 const initialState = {
     fetching: false,
@@ -21,6 +27,15 @@ const cardsReducer = (state = initialState, action) => {
 
       case FILTER_CARD_TECH:
         return { ...state, tech: action.filter }
+
+      case FILTER_CARD_DETAIL:
+        
+        return {
+            ...state,
+            ...{fetching: false,
+            cards: state.cards.filter( card => card.cardId === action.payload )}
+            
+          }
 
       default:
         return state
