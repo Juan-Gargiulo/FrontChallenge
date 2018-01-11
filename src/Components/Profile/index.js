@@ -1,12 +1,12 @@
 import React from 'react'
 import  styled  from 'styled-components';
 import PropTypes from 'prop-types';
-import { primaryColorStrong } from '../../common/colors'
+import { COLOR } from '../../common/colors'
 
 export const Container = styled.div`
     display: block;
     background-color: #3D3D3D;
-    color: ${primaryColorStrong};
+    color: ${COLOR.primaryColorStrong};
     text-align: center;
     padding: 15px 15px 15px 15px;
 `

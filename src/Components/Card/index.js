@@ -4,19 +4,19 @@ import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom'
 
-import { primaryFontColor } from '../../common/colors'
+import { COLOR } from '../../common/colors'
 
 const Container = styled.div`
     display: block;
     cursor: pointer;
     min-height: 408px;
     width: 325px;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 12px;
+    margin-right: 12px;
     margin-top: 15px;
     background-color: white;
 
-    ${props => props.animate ?    
+    ${props => props.animate ?
         `&:hover {
             transition: all .2s ease-in-out;
             transform: scale(1.02);
@@ -24,7 +24,7 @@ const Container = styled.div`
 `
 const Description = styled.div`
     padding: 15px 30px 15px 30px;
-    color: ${primaryFontColor};
+    color: ${COLOR.primaryFontColor};
 `
 
 
@@ -35,7 +35,7 @@ const CardImg = styled.img.attrs({
 `
 
 const Card = ({...props, card, animate}) => {
-    
+
     return (
         <Container animate={animate}>
             <Link style={{textDecoration: 'none'}} to={`detail/${card.cardId}`}>

@@ -1,6 +1,8 @@
-export const secondaryColor = "black";
-export const backgroudColor = "white"
-export const primaryFontColor = "#4d5056";
-export const primaryColorStrong = "white";
-export const primaryColor = "#F0DB4F";
+export const COLOR = {
+  secondaryColor : "black",
+  backgroudColor : "#E7E7E7",
+  primaryFontColor : "#4d5056",
+  primaryColorStrong : "white",
+  primaryColor : "#F0DB4F",
+}
 

@@ -3,7 +3,7 @@ import {delay} from 'redux-saga';
 
 import { GET_CARDS, GET_CARD_DETAIL, FILTER_CARD_DETAIL } from './cardsActions'
 
-import { fetching, setCards, getCardDetail } from './cardsActions'
+import { fetching, setCards } from './cardsActions'
 import { fetchCardsApi } from './api'
 
 function* getCards() {
@@ -14,7 +14,7 @@ function* getCards() {
        yield call(delay, 1000)
 
        yield put( setCards(cards) );
-       
+
     } catch (e) {
        console.log(e.message)
     }
@@ -31,15 +31,11 @@ function* getCards() {
         payload
       } );
 
-       
+
     } catch (e) {
        console.log(e.message)
     }
  }
-
- function *sleep(time) {
-    yield new Promise(resolve => setTimeout(resolve, time));
-  }
 
 export const cardsSagas = [
     takeEvery(GET_CARDS, getCards),

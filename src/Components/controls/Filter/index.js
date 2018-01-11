@@ -1,12 +1,12 @@
 import React from 'react';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
-import { primaryColor, primaryColorStrong } from '../../../common/colors'
+import { COLOR } from '../../../common/colors'
 
 export const stylesDefautl = {
   container: {padding: '25px 20px 10px 25px'},
-  span: {fontSize: '1.1em', color: primaryColorStrong},
-  labelStyle: {color: primaryColorStrong },
-  iconStyle: {fill: primaryColor},
+  span: {fontSize: '1.1em', color: COLOR.primaryColorStrong},
+  labelStyle: {color: COLOR.primaryColorStrong },
+  iconStyle: {fill: COLOR.primaryColor},
   style: {marginTop: '15px'}
 };
 

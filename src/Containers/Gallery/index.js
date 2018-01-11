@@ -9,19 +9,19 @@ import { cardsSelected } from '../../core/cards/cardSelectors'
 import Card from '../../Components/Card'
 import PageTitle from '../../Components/layout/PageTitle'
 
-import { primaryColor } from '../../common/colors'
-import { Container, GalleryCont, Content } from './style.js'
+import { COLOR } from '../../common/colors'
+import { Container, GalleryCont } from './style.js'
 
 
 const Gallery = ({ ...props, cards, fetching, getCards }) => {
    return (
       <Container {...this.props}>
-            
+
             <PageTitle title={'LANGUAGES & TECHNOLOGIES'} />
             <GalleryCont >
             { renderCards(cards) }
             </GalleryCont>
-            
+
       </Container>
    )
 }
@@ -41,7 +41,7 @@ const enchanced = compose(
             })
       ),
       withProps({
-        spinnerColor: primaryColor,
+        spinnerColor: COLOR.primaryColor,
         spinnerthickness: 15,
         spinnerSize: 100
       }),

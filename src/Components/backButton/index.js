@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components'
-import { secondaryColor, primaryColorStrong } from '../../common/colors'
+import { COLOR } from '../../common/colors'
 
 export const Container = styled.div`
     position: absolute;
     margin-top: ${props => props.top ? props.top : "0px"};
     width: 109px;
     height: 36px;
-    background-color: ${secondaryColor};
+    background-color: ${COLOR.secondaryColor};
     cursor: pointer;
     paddin
 `
@@ -18,14 +18,14 @@ export const Text = styled.span`
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 0.9em;
-    color: ${primaryColorStrong}
-    
+    color: ${COLOR.primaryColorStrong}
+
 `
 
 export const BackButton = props => {
     console.log(props.history.goBack)
     return (
     <Container onCLick={props.history.goBack} {...props}>
-        <Text onClick={props.history.goBack}>Go back</Text>        
+        <Text onClick={props.history.goBack}>Go back</Text>
     </Container>
 )}

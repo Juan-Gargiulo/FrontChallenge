@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { primaryFontColor } from '../../../common/colors'
+import { COLOR } from '../../../common/colors'
 
 const Container = styled.div`
     width: 100%;
@@ -9,7 +9,7 @@ const Container = styled.div`
 `
 
 const Title = styled.h2`
-    color: ${primaryFontColor};
+    color: ${COLOR.primaryFontColor};
 `
 
 const pageTitle = ({title}) => {

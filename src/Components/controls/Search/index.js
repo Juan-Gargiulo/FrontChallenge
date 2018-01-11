@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import debounce from 'lodash.debounce';
 
 import TextField from 'material-ui/TextField';
-import { primaryColor, primaryFontColor, primaryColorStrong } from '../../../common/colors'
+import { COLOR } from '../../../common/colors'
 
 export const styles = {
   container: {padding: '25px 20px 10px 25px'},
-  inputStyle: {color: primaryColorStrong},
-  hintStyle: {color: primaryFontColor},
-  underlineStyle: {fill: primaryColor},
-  floatingLabelFocusStyle: {fill: primaryColor}
+  inputStyle: {color: COLOR.primaryColorStrong},
+  hintStyle: {color: COLOR.primaryFontColor},
+  underlineStyle: {fill: COLOR.primaryColor},
+  floatingLabelFocusStyle: {fill: COLOR.primaryColor}
 };
 
 export default class Search extends Component {

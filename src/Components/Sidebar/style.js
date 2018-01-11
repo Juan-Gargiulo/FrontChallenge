@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {secondaryColor} from '../../common/colors.js'
+import { COLOR } from '../../common/colors.js'
 
 //transform: translateX(${props => props.visible ? '0px' : '-300px'});
 //transition: transform .2s ease-in;
@@ -12,5 +12,5 @@ export const Container = styled.div`
     display: ${props => props.navVisible ? 'block' : 'none'} ;
     width: 300px;
     height: calc(100vh - 60px);
-    background-color: ${secondaryColor};
+    background-color: ${COLOR.secondaryColor};
 `

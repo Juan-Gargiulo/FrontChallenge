@@ -1,56 +1,64 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import styled from 'styled-components';
+import RC2 from 'react-chartjs2';
 
 import { BackButton } from '../../Components/backButton'
-import { backgroudColor, primaryColorStrong, primaryColor } from '../../common/colors'
+
+import { COLOR } from '../../common/colors'
+import {
+  Container,
+  DescriptionContainer,
+  Description,
+  HeaderContainer,
+  HeaderTitle,
+  Graph,
+} from './style'
 
 import { compose, lifecycle, withProps, pure } from 'recompose'
 import withLoading from '../Hocs/LoadingHoc'
 
 import { getCardDetail } from '../../core/cards/cardsActions'
 
-export const Container = styled.div`
-    width: ${props => props.navVisible ? "calc(100% - 300px)" : "100%"};
-    height: calc(100vh - 60px);
-    background-color: ${backgroudColor};
-`
-
-export const HeaderContainer = styled.div`
-    background-image: url(${props => props.img});
-    background-position: center;
-    position: relative;
-    width: 100%;
-    height: 200px;
-`
-
-export const HeaderTitle = styled.p`
-    position: absolute;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 2em;
-    color: ${primaryColorStrong};
-    text-shadow: 3px 3px 3px black
-
-`
 
 const CardDetail = ({
-    ...props, 
+    ...props,
     card,
     getCardDetail,
     history : { goBack },
     match : { params : id }
-    
+
 }) => {
-    
-    
+
+
+    const chartData = {
+
+      datasets: [
+        {
+          label: card.cardTitle + 'Development',
+          backgroundColor: [
+            '#FF6384',
+            '#36A2EB',
+            '#FFCE56'
+          ],
+
+          borderWidth: 0,
+          data: card.cardGraph.data,
+        }
+      ]
+    };
+
     return <Container backFn={goBack}>
         <HeaderContainer img={card.cardPost.postImageUrl}>
-            <BackButton top={"10px"} {...props}/>     
+            <BackButton top={"10px"} {...props}/>
             <HeaderTitle>{card.cardTitle}</HeaderTitle>
         </HeaderContainer>
-    </Container>    
+        <DescriptionContainer>
+        <Description>{card.cardPost.postDescription}</Description>
+        <Graph>
+          <RC2 data={chartData}  type='doughnut' />
+        </Graph>
+        </DescriptionContainer>
+    </Container>
 }
 
 export default compose(
@@ -64,13 +72,13 @@ export default compose(
         })
     ),
     withProps({
-        spinnerColor: primaryColor,
+        spinnerColor: COLOR.primaryColor,
         spinnerthickness: 15,
         spinnerSize: 100
     }),
     lifecycle({
         componentWillMount() {
-            const id = parseInt(this.props.match.params.id)
+            const id = parseInt(this.props.match.params.id, 10)
             console.log(id)
             this.props.getCardDetail(id);
         },
