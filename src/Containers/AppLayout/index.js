@@ -11,11 +11,15 @@ export const Container = styled.div`
 
 export const Body = styled.div`
     display: flex;
+    height: calc(100vh - 60px);
 `
 
 export const Content = styled.div`
     overflow-y: auto;
     width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
 export default class AppLayout extends Component {

@@ -5,11 +5,17 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import { Routes } from '../Routes';
 import { injectGlobal } from 'styled-components';
 import Roboto from '../../Roboto.ttf';
+import RobotoLight from '../../Roboto-Light.ttf'
 
 injectGlobal`
     @font-face {
         font-family: 'Roboto';
         src: url(${Roboto});
+    }
+
+    @font-face {
+        font-family: 'Roboto-Light';
+        src: url(${RobotoLight});
     }
 
     body{
