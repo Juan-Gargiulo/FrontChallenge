@@ -11,7 +11,7 @@ function* getCards() {
        yield put( fetching() );
        const cards = yield call( fetchCardsApi );
 
-       yield call(delay, 1000)
+       yield call(delay, 1000*1000)
 
        yield put( setCards(cards) );
 

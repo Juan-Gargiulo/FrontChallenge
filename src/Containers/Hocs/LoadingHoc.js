@@ -7,7 +7,8 @@ import { COLOR } from '../../common/colors'
 
 export const Container = styled.div`
     display: flex;
-    height: 100%;
+    flex: 0 0 auto;
+    height: 100vh
     align-items: center;
     justify-content: center;
     background-color: ${COLOR.backgroudColor};

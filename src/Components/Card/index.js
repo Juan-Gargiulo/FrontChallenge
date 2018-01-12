@@ -22,11 +22,11 @@ const Container = styled.div`
             transform: scale(1.02);
         }` : ""}
 `
+
 const Description = styled.div`
     padding: 15px 30px 15px 30px;
     color: ${COLOR.primaryFontColor};
 `
-
 
 const CardImg = styled.img.attrs({
     src: props => props.card.cardImageUrl

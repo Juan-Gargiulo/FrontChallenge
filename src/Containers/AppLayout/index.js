@@ -1,13 +1,24 @@
 import React, { Component } from 'react'
 import Header from '../../Components/Header';
 import Sidebar from '../../Components/Sidebar';
-import { Routes } from '../Routes';
 
-import { connect } from 'react-redux'
+import styled from 'styled-components';
 
-import { Container, Body } from './style.js'
+export const Container = styled.div`
+    display: block;
+    overflow-y: none;
+`
 
-class App extends Component {
+export const Body = styled.div`
+    display: flex;
+`
+
+export const Content = styled.div`
+    overflow-y: auto;
+    width: 100%;
+`
+
+export default class AppLayout extends Component {
 
     constructor(props) {
         super(props);
@@ -23,30 +34,22 @@ class App extends Component {
             navVisible: !this.state.navVisible
         })
     }
-    
+
     render() {
+
+        const { Component } = this.props;
+
         return (
                 <Container>
                     <Header toggleSidebar={this.toggleSidebar}/>
                     <Body>
                         <Sidebar navVisible={this.state.navVisible}/>
-                        <Routes />
+                        <Content navVisible={this.state.navVisible}>
+                          <Component {...this.props}/>
+                        </Content>
                     </Body>
                 </Container>
 
         )
     }
 }
-
-const mapStateToProps = state => {
-    return {
-      fetching: state.cards.fetching,
-    }
-}
-
-const ConectedApp = connect(
-    mapStateToProps,
-    null
-  )(App)
-
-export default ConectedApp

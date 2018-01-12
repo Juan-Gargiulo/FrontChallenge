@@ -6,6 +6,8 @@ import {
   Switch,
 } from 'react-router-dom'
 
+import AppLayout from '../../Containers/AppLayout'
+
 import Gallery from '../Gallery'
 import Detail from '../Detail';
 
@@ -20,11 +22,11 @@ const routes = [
   {
     exact: true,
     path: paths.GALLERY,
-    render: props => <Gallery title="Gallery" {...props} />
+    render: props => <AppLayout Component={Gallery} title="Gallery" {...props} />
   },
   {
     path: paths.CARD_DETAIL,
-    render: props => <Detail title="Detail" {...props} />
+    render: props => <AppLayout Component={Detail} title="Detail" {...props} />
   },
   {
     component: () => <h3>No match for this route></h3>
