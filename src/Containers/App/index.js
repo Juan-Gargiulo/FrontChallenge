@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Header from '../../Components/Header';
 import Sidebar from '../../Components/Sidebar';
-import { Content } from '../Content';
+import { Routes } from '../Routes';
 
 import { connect } from 'react-redux'
 
@@ -30,7 +30,7 @@ class App extends Component {
                     <Header toggleSidebar={this.toggleSidebar}/>
                     <Body>
                         <Sidebar navVisible={this.state.navVisible}/>
-                        <Content />
+                        <Routes />
                     </Body>
                 </Container>
 

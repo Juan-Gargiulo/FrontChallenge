@@ -6,7 +6,6 @@ import {
   Switch,
 } from 'react-router-dom'
 
-
 import Gallery from '../Gallery'
 import Detail from '../Detail';
 
@@ -24,11 +23,8 @@ const routes = [
     render: props => <Gallery title="Gallery" {...props} />
   },
   {
-    
-    
     path: paths.CARD_DETAIL,
     render: props => <Detail title="Detail" {...props} />
-
   },
   {
     component: () => <h3>No match for this route></h3>
@@ -37,7 +33,7 @@ const routes = [
 
 
 
-export const Content = ({...props}) => (
+export const Routes = ({...props}) => (
     <Router>
         <Container>
           <Switch>
