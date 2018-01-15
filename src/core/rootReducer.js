@@ -1,6 +1,13 @@
-import { combineReducers } from 'redux'
+import { persistCombineReducers } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+
 import cards from './cards/cardReducer'
 
-export default combineReducers({
-  cards,
-})
+const config = {
+  key: 'root',
+  storage,
+}
+
+const reducers = { cards }
+
+export default persistCombineReducers( config, reducers )

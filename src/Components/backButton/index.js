@@ -23,7 +23,6 @@ export const Text = styled.span`
 `
 
 export const BackButton = props => {
-    console.log(props.history.goBack)
     return (
     <Container onCLick={props.history.goBack} {...props}>
         <Text onClick={props.history.goBack}>Go back</Text>

@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 
-const cards = state => state.cards.cards
+const cards = state => state.cards.cards || []
 const filter = state => state.cards.filter
 const tech = state => state.cards.tech
 
@@ -18,3 +18,8 @@ export const cardsSelected = createSelector(
   cardsFilter,
   cards => cards
 );
+
+export const cardById = id => createSelector(
+  [cards],
+  cards =>  cards.filter(cards => cards.cardId === id)
+)

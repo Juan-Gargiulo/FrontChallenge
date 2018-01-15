@@ -3,11 +3,18 @@ import ReactDOM from 'react-dom';
 import Root from '../src/Containers/Root'
 
 import { Provider } from 'react-redux'
-import store from '../src/core/store'
+import { PersistGate } from 'redux-persist/es/integration/react'
+
+
+import configureStore from '../src/core/store'
+
+const { persistor, store } = configureStore();
 
 ReactDOM.render(
     <Provider store={store}>
-        <Root />
+      <PersistGate loading={<p>loading...</p>} onBeforeLift={()=>{}} persistor={persistor}>
+          <Root />
+      </PersistGate>
     </Provider>
     , document.getElementById('root')
 );

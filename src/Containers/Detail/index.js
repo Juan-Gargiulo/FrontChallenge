@@ -4,7 +4,11 @@ import RC2 from 'react-chartjs2';
 
 import { BackButton } from '../../Components/backButton'
 
+import { cardById } from '../../core/cards/cardSelectors'
+
+// Styles
 import { COLOR } from '../../common/colors'
+
 import {
   Container,
   DescriptionContainer,
@@ -14,11 +18,8 @@ import {
   Graph,
 } from './style'
 
-import { compose, lifecycle, withProps, pure } from 'recompose'
+import { compose, withProps, pure } from 'recompose'
 import withLoading from '../Hocs/LoadingHoc'
-
-import { getCardDetail } from '../../core/cards/cardsActions'
-
 
 const CardDetail = ({
     ...props,
@@ -29,9 +30,7 @@ const CardDetail = ({
 
 }) => {
 
-
     const chartData = {
-
       datasets: [
         {
           label: card.cardTitle + 'Development',
@@ -63,25 +62,15 @@ const CardDetail = ({
 
 export default compose(
     connect(
-        state => ({
-            loading: state.cards.fetching,
-            card: state.cards.cards[0]
+        (state, props) => ({
+          loading: state.cards.fetching,
+          card: cardById(+props.match.params.id)(state)[0],
         }),
-        dispatch => ({
-            getCardDetail: id => dispatch(getCardDetail(id))
-        })
     ),
     withProps({
         spinnerColor: COLOR.primaryColor,
         spinnerthickness: 15,
         spinnerSize: 100
-    }),
-    lifecycle({
-        componentWillMount() {
-            const id = parseInt(this.props.match.params.id, 10)
-            console.log(id)
-            this.props.getCardDetail(id);
-        },
     }),
     withLoading,
     pure
