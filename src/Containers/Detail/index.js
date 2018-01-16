@@ -64,7 +64,7 @@ export default compose(
     connect(
         (state, props) => ({
           loading: state.cards.fetching,
-          card: cardById(+props.match.params.id)(state)[0],
+          card: cardById(state, props),
         }),
     ),
     withProps({

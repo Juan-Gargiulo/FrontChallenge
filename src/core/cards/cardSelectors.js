@@ -4,6 +4,8 @@ const cards = state => state.cards.cards || []
 const filter = state => state.cards.filter
 const tech = state => state.cards.tech
 
+const cardDetailId = (state, props) => props.match.params.id
+
 export const cardsTech = createSelector(
   [cards, tech],
   (cards, tech) => cards.filter(cards => cards.cardTechnology.includes(tech))
@@ -19,7 +21,10 @@ export const cardsSelected = createSelector(
   cards => cards
 );
 
-export const cardById = id => createSelector(
-  [cards],
-  cards =>  cards.filter(cards => cards.cardId === id)
+export const cardById =  createSelector(
+  [cards, cardDetailId],
+  (cards, id) => {
+    const card = cards.filter(cards => cards.cardId === +id)
+    return card[0]
+  }
 )
